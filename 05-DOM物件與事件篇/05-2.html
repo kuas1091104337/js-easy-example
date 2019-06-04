@@ -10,13 +10,27 @@
 </head>
 <body>
     <div id="app">
-        <h1>HISKIO</h1>
+        <h1>HISKIO-1</h1>
+        <h1>HISKIO-2</h1>
+        <h1>HISKIO-3</h1>
         <a class="Btn" href="javascript:;"> > 馬上觀看最新課程</a>
+        <a class="Btn" href="javascript:;">馬上看</a>
     </div>
     <script>
-        
+        console.log(document.getElementsByTagName('h1').length);
+        console.log(document.querySelectorAll('#app > a').length);
+        console.log(document.querySelectorAll('#app > a')[1]);
 
         console.log(document.getElementsByClassName("Btn")[0]);
+        console.log(document.getElementsByClassName("Btn").length);
+        document.getElementsByClassName('Btn')[1].addEventListener('click', BtnFn);
+        function BtnFn(){
+            alert('12345')
+        }
+        document.getElementsByTagName('h1')[0].addEventListener('click', H1Fn);
+        function H1Fn(){
+            alert('67890')
+        }
 
     </script>
 </body>
