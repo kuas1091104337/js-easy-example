@@ -12,28 +12,40 @@
     <div id="app">
         <h1 id="title">HISKIO</h1>
         <div class="btnbox">
-            <a id="fontSizeBig_btn" href="javascript:;">放大</a>
-            <a id="fontSizeSmall_btn" href="javascript:;">縮小</a>
+            <a id="fontSizeBig_btn" href="javascript:;">放大 +</a>
+            <a id="fontSizeSmall_btn" href="javascript:;">縮小 -</a>
             <a id="fontSizeNormal_btn" href="javascript:;">正常</a>
         </div>
     </div>
     <script>
-        
-        var title = document.getElementById("title");
+        let fontSize = 150;
+        const $title = document.getElementById('title');
+        function gitFn(){
+            $title.style.fontSize = `${fontSize+=10}px`;
+        }
+        function smallFn(){
+            $title.style.fontSize = `${fontSize-=10}px`;
+        }
+        function normalFn(){
+            $title.style.fontSize = '150px';
+        }
+        document.getElementsByTagName('a')[0].addEventListener('click', gitFn);
+        document.getElementsByTagName('a')[1].addEventListener('click', smallFn);
+        document.getElementsByTagName('a')[2].addEventListener('click', normalFn);
 
-        function fontSizeBig(){
-            title.style.fontSize = "200px";
-        }
-        function fontSizeSmall(){
-            title.style.fontSize = "100px";
-        }
-        function fontSizeNormal(){
-            title.style.fontSize = "150px";
-        }
-
-        document.getElementById("fontSizeBig_btn").addEventListener("click", fontSizeBig);
-        document.getElementById("fontSizeSmall_btn").addEventListener("click", fontSizeSmall);
-        document.getElementById("fontSizeNormal_btn").addEventListener("click", fontSizeNormal);
+        // var title = document.getElementById("title");
+        // function fontSizeBig(){
+        //     title.style.fontSize = "200px";
+        // }
+        // function fontSizeSmall(){
+        //     title.style.fontSize = "100px";
+        // }
+        // function fontSizeNormal(){
+        //     title.style.fontSize = "150px";
+        // }
+        // document.getElementById("fontSizeBig_btn").addEventListener("click", fontSizeBig);
+        // document.getElementById("fontSizeSmall_btn").addEventListener("click", fontSizeSmall);
+        // document.getElementById("fontSizeNormal_btn").addEventListener("click", fontSizeNormal);
 
     </script>
 </body>

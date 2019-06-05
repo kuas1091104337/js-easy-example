@@ -12,15 +12,21 @@
     <div id="app">
         <h1>HISKIO</h1>
         <a id="Btn" href="javascript:;"> > 馬上觀看最新課程</a>
+        <a href="www.google.com" id="google">google</a>
     </div>
     <script>
-        
         function Welcone(){
             document.getElementById("Btn").target = "_blank";
             document.getElementById("Btn").href = "https://hiskio.com/courses";
         }
-        
         document.getElementById("Btn").addEventListener("click", Welcone);
+        
+        var $google = document.getElementById('google')
+        function google(){
+            $google.target = '_blank';
+            $google.href = 'https://tw.yahoo.com';
+        }
+        $google.addEventListener("click", google);
 
     </script>
 </body>

@@ -7,11 +7,15 @@
     <title> 常用的window方法 </title>
     <link rel="stylesheet" href="./css/normalize.css">
     <link rel="stylesheet" href="./css/05-10.css">
+    <style>
+        body{height:500%;}
+    </style>
 </head>
 <body>
     <div id="app">
         <a id="Btn" href="javascript:;">常用的window方法?</a>
         <p id="tit2"></p>
+        <h1>close</h1>
     </div>
     <script>
         var title = document.getElementById('tit2');
@@ -32,12 +36,17 @@
                     "window.clearTimeout()	//取消由setTimeout()方法設定的計時器。\n" +
                     "window.resizeBy()	    //調整視窗大小。\n" +
                     "window.resizeTo()	    //調整視窗大小。\n" +
-                    "window.scrollBy()	    //滾動內容。\n" +
-                    "window.scrollTo()	    //滾動內容。\n";
+                    "window.scrollBy(xnum,ynum)	    //滾動內容。\n" +
+                    "window.scrollTo(xpos,ypos)	    //滾動內容。\n";
         document.getElementById("Btn").addEventListener("click", function(){
             console.log(text);
             title.innerText = "F12 查看 console.log()";
         });
+        function close(){
+            window.scrollBy(0,1000);
+            // window.scrollTo(0,2000);
+        }
+        document.getElementsByTagName('h1')[0].addEventListener('click', close);
         /*
         window.alert()	        //跳出一個警告訊息窗。
         window.close()	        //關閉瀏覽器視窗
