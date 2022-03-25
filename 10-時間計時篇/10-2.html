@@ -9,20 +9,24 @@
 </head>
 <body>
     <h1 id="time"></h1>
-
     <script>
-        var time = document.getElementById('time');
-        time.innerText = '3秒後開始';
-        
-        
+        var $time = document.getElementById('time'),
+            sec = 3000;
+        $time.innerText = '3秒後開';
         setTimeout(function(){
-            time.innerText = '開始!';
-        },3000);
-
+            $time.innerText = '開始';
+        },sec);
         setTimeout(function(){
-            time.innerText = 'END';
-        },6000);
-
+            $time.innerText = 'END';
+        },sec*2);
+        // var time = document.getElementById('time');
+        // time.innerText = '3秒後開始';
+        // setTimeout(function(){
+        //     time.innerText = '開始!';
+        // },3000);
+        // setTimeout(function(){
+        //     time.innerText = 'END';
+        // },6000);
     </script>
     
 </body>

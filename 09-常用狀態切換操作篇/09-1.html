@@ -15,9 +15,8 @@
         <div class="content">
             <img src="../images/logo2.png" alt="">
         </div>
-
-        <div class="menu ">
-            <a class="closeBtn"><i class="fas fa-times fa-3x"></i></a>
+        <div class="menu">
+            <!-- <a class="closeBtn"><i class="fas fa-times fa-3x"></i></a> -->
             <ul class="nav">
                 <li><a>abous</a></li>
                 <li><a>content</a></li>
@@ -27,20 +26,22 @@
         </div>
     </div>
     <script>
-        var menu = document.getElementsByClassName('menu')[0];
-        var menuBtn = document.getElementsByClassName('menuBtn')[0];
-        var closeBtn = document.getElementsByClassName('closeBtn')[0];
-        
-
-        menuBtn.addEventListener('click', function(){
-            menu.classList.add('open');
-        })
-
-        closeBtn.addEventListener('click', function(){
-            menu.classList.remove('open');
-        })
-
-    
+        // var menu = document.getElementsByClassName('menu')[0];
+        // var menuBtn = document.getElementsByClassName('menuBtn')[0];
+        // var closeBtn = document.getElementsByClassName('closeBtn')[0];
+        // menuBtn.addEventListener('click', function(){
+        //     menu.classList.add('open');
+        // })
+        // closeBtn.addEventListener('click', function(){
+        //     menu.classList.remove('open');
+        // })
+        var $menu = document.querySelector('.menu').classList;
+        document.querySelector('.menuBtn').addEventListener('click',menuOpen);
+        function menuOpen(){
+            var $menuIcon = this.children[0].classList;
+            $menu.toggle('open');
+            $menu.contains('open') ? $menuIcon.add('fa-times') : $menuIcon.remove('fa-times');
+        }
     
     </script>
 </body>

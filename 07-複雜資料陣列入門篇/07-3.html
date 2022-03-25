@@ -10,48 +10,68 @@
     <link rel="stylesheet" href="./css/07-3.css">
 </head>
 <body>
-
     <div id="app">
         <a id="angleleft"><i class="fas fa-angle-left fa-5x"></i></a>
         <img id="photo" src="../images/05/small/a1.jpg" alt="">
         <a id="angleright"><i class="fas fa-angle-right fa-5x"></i></a>
         <h2 id="pagination">1/5</h2>
     </div>
-
     <script>       
-        var arr = [
-            '../images/05/small/a1.jpg',
-            '../images/05/small/a2.jpg',
-            '../images/05/small/a3.jpg',
-            '../images/05/small/a4.jpg',
-            '../images/05/small/a5.jpg',
-        ];
-        var angleleft = document.getElementById('angleleft');
-        var angleright = document.getElementById('angleright');
-        var photo = document.getElementById('photo');
-        var pagination = document.getElementById('pagination');
-        var pageIdx = 0;
-
-        angleleft.addEventListener('click', function(){
-            pageIdx--;
-            if(pageIdx < 0){
-                pageIdx = 4;
-            }
-            handImgChange();
-        })
-
-        angleright.addEventListener('click', function(){
-            pageIdx++;
-            if(pageIdx > 4){
-                pageIdx = 0;
-            }
-            handImgChange();
-        })
-
-        function handImgChange(){
-            photo.src = arr[pageIdx];
-            pagination.innerText = (pageIdx + 1) + "/" + arr.length;
+        // var arr = [
+        //     '../images/05/small/a1.jpg', '../images/05/small/a2.jpg', '../images/05/small/a3.jpg', '../images/05/small/a4.jpg', '../images/05/small/a5.jpg',
+        // ];
+        // var angleleft = document.getElementById('angleleft');
+        // var angleright = document.getElementById('angleright');
+        // var photo = document.getElementById('photo');
+        // var pagination = document.getElementById('pagination');
+        // var pageIdx = 0;
+        // angleleft.addEventListener('click', function(){
+        //     pageIdx--;
+        //     if(pageIdx < 0){
+        //         pageIdx = 4;
+        //     }
+        //     handImgChange();
+        // })
+        // angleright.addEventListener('click', function(){
+        //     pageIdx++;
+        //     if(pageIdx > 4){
+        //         pageIdx = 0;
+        //     }
+        //     handImgChange();
+        // })
+        // function handImgChange(){
+        //     photo.src = arr[pageIdx];
+        //     pagination.innerText = (pageIdx + 1) + "/" + arr.length;
+        // }
+        var imgIdx = 0,
+            srcArr = [
+                '../images/05/small/a1.jpg',
+                '../images/05/small/a2.jpg',
+                '../images/05/small/a3.jpg',
+                '../images/05/small/a4.jpg',
+                '../images/05/small/a5.jpg'
+            ],
+            srcArrMax = srcArr.length;
+        document.querySelectorAll('#app > a').forEach((el) => {
+          el.addEventListener('click', imgChange);
+        });
+        function imgShow(){
+            document.getElementById('photo').src = srcArr[imgIdx];
+            document.getElementById('pagination').innerText = (imgIdx+1)+'/'+srcArrMax;
         }
+        function imgChange(){
+            if(this.id == 'angleright'){
+                imgIdx++;
+                if(imgIdx>srcArrMax-1) imgIdx = 0;
+                console.log(imgIdx);
+            }else{
+                imgIdx--;
+                if(imgIdx<0) imgIdx = srcArrMax-1;
+                console.log(imgIdx);
+            }
+            imgShow();
+        }
+        
 
 
     </script>

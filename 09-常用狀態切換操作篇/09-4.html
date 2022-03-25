@@ -13,32 +13,37 @@
         <div>      
             <img id="logo" src="../images/logo2.png" alt="">
             <ul class="navBox">
-                <li><a id="n1" class="nav active">首頁 > </a></li>
+                <li><a id="n1" class="nav">首頁 > </a></li>
                 <li><a id="n2" class="nav">關於我們 > </a></li>
                 <li><a id="n3" class="nav">連絡客服 > </a></li>
                 <li><a id="n4" class="nav">最新課程 > </a></li>
-                <li><a id="n5" class="nav">最新消息 > </a></li>
+                <li><a id="n5" class="nav active">最新消息 > </a></li>
                 <li><a id="n6" class="nav">課程公告 > </a></li>
                 <li><a id="n7" class="nav">成為老師 > </a></li>
             </ul>
         </div>
     </div>
-
     <script>
-        var navBtn = document.getElementsByClassName('nav');
-
-        for(var i = 0; i < navBtn.length; i++){
-            navBtn[i].addEventListener('click', menuClcik);
-        }
-        
-        function menuClcik(){
-            for(var s = 0; s < navBtn.length; s++){
-                navBtn[s].classList.remove('active');
-            }
+        var navIdx, $nav = document.getElementsByClassName('nav');
+        document.querySelectorAll('.nav').forEach((el,index) => {
+            if(el.classList.contains('active')) navIdx = index;
+            el.addEventListener('click',navActive);
+        });
+        function navActive(){
+            $nav[navIdx].classList.remove('active');
             this.classList.add('active');
+            navIdx = this.id.substr(1) - 1;
         }
-
-
+        // var navBtn = document.getElementsByClassName('nav');
+        // for(var i = 0; i < navBtn.length; i++){
+        //     navBtn[i].addEventListener('click', menuClcik);
+        // }
+        // function menuClcik(){
+        //     for(var s = 0; s < navBtn.length; s++){
+        //         navBtn[s].classList.remove('active');
+        //     }
+        //     this.classList.add('active');
+        // }
     </script>
 </body>
 </html>

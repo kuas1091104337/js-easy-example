@@ -25,7 +25,7 @@
             </div> 
         </div>
         <div class="right">
-            <div id="p1" class="page"># 首頁</div>
+            <div id="p1" class="page open"># 首頁</div>
             <div id="p2" class="page"># 關於我們</div>
             <div id="p3" class="page"># 連絡客服</div>
             <div id="p4" class="page"># 最新課程</div>
@@ -34,30 +34,38 @@
             <div id="p7" class="page"># 成為老師</div>
         </div>
     </div>
-
     <script>
-        
-        var navBtn = document.getElementsByClassName('nav');
-        var page = document.getElementsByClassName('page');
-        var pageIdx = 0;
-
-        page[0].style.display = 'flex';
-
-        for(var i = 0; i < navBtn.length; i++){
-            navBtn[i].addEventListener('click', menuClcik);
-        }
-        
-        function menuClcik(){
-            for(var s = 0; s < navBtn.length; s++){
-                navBtn[s].classList.remove('active');
-                page[s].style.display = 'none';
-            }
+        var navIdx,
+            $nav = document.getElementsByClassName('nav'),
+            $page = document.getElementsByClassName('page');
+        document.querySelectorAll('.nav').forEach((el,index) => {
+            if(el.classList.contains('active')) navIdx = index;
+            el.addEventListener('click',navActive);
+        });
+        function navActive(){
+            $nav[navIdx].classList.remove('active');
+            $page[navIdx].classList.remove('open');
+            navIdx = this.id.substr(1) - 1;
             this.classList.add('active');
-            pageIdx = Number(this.id.substr(1));
-            page[pageIdx-1].style.display = 'flex';
+            $page[navIdx].classList.add('open');
         }
-        
-        
+
+        // var navBtn = document.getElementsByClassName('nav');
+        // var page = document.getElementsByClassName('page');
+        // var pageIdx = 0;
+        // page[0].style.display = 'flex';
+        // for(var i = 0; i < navBtn.length; i++){
+        //     navBtn[i].addEventListener('click', menuClcik);
+        // }
+        // function menuClcik(){
+        //     for(var s = 0; s < navBtn.length; s++){
+        //         navBtn[s].classList.remove('active');
+        //         page[s].style.display = 'none';
+        //     }
+        //     this.classList.add('active');
+        //     pageIdx = Number(this.id.substr(1));
+        //     page[pageIdx-1].style.display = 'flex';
+        // }
     </script>
 </body>
 </html>

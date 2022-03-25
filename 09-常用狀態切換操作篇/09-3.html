@@ -19,14 +19,12 @@
                 <i class="fas fa-times fa-3x"></i>
             </span>
         </a>
-
         <div class="content">
             <div class="mid">
                 <img src="../images/logo2.png" alt="">
                 <a class="clickWatch">點擊看課程</a>
             </div>
         </div>
-
         <div class="menu ">
             <ul class="nav">
                 <li><a>abous</a></li>
@@ -37,36 +35,34 @@
         </div>
     </div>
     <script>
-        var app = document.getElementById('app');
-        var menu = document.getElementsByClassName('menu')[0];
-        var menuBtn = document.getElementsByClassName('menuBtn')[0];
-        var clickWatch = document.getElementsByClassName('clickWatch')[0];
-        
-        menuBtn.addEventListener('click', function(){
-            app.classList.toggle('open');
+        var $app = document.getElementById('app').classList;
+        document.querySelector('.menuBtn').addEventListener('click',function(){
+            $app.toggle('open');
         });
-
-        clickWatch.addEventListener('click', function(){
-            
-            //寫法 1
-            if(app.classList.contains('open') === false ){
-                window.open('https://hiskio.com/professions/1');
-            }
-
-            //寫法 2
-            /*
-                if(app.classList.contains('open') !== true ){
-                    window.open('https://hiskio.com/professions/1');
-                }
-            */
-            
-            //寫法 3
-            /*
-                if(!app.classList.contains('open')){
-                    window.open('https://hiskio.com/professions/1');
-                }
-            */
+        document.querySelector('.clickWatch').addEventListener('click',function(){
+            if(!$app.contains('open')) open('https://hiskio.com/professions/1')
         });
+        // var app = document.getElementById('app');
+        // var menu = document.getElementsByClassName('menu')[0];
+        // var menuBtn = document.getElementsByClassName('menuBtn')[0];
+        // var clickWatch = document.getElementsByClassName('clickWatch')[0];
+        // menuBtn.addEventListener('click', function(){
+        //     app.classList.toggle('open');
+        // });
+        // clickWatch.addEventListener('click', function(){
+        //     //寫法 1
+        //     if(app.classList.contains('open') === false ){
+        //         window.open('https://hiskio.com/professions/1');
+        //     }
+        //     //寫法 2
+        //     /* if(app.classList.contains('open') !== true ){
+        //             window.open('https://hiskio.com/professions/1');
+        //         } */
+        //     //寫法 3
+        //     /* if(!app.classList.contains('open')){
+        //             window.open('https://hiskio.com/professions/1');
+        //         } */
+        // });
 
     </script>
 </body>

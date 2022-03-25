@@ -68,6 +68,30 @@
         window.scrollBy()	    //滾動內容。
         window.scrollTo()	    //滾動內容。
         */
+        // window.onresize = function(){
+        //     console.log("視窗發生改變了喲！");
+        // }
+    
+// window.onresize 多次觸發的解決方法
+var debounce = function(func,threshold,execAsap){
+	var timeout;
+	return function debounced(){
+		var obj = this, args = arguments;
+		function delayed(){
+			if(!execAsap) func.apply(obj, args);
+			timeout = null;
+		};
+		if(timeout){
+			clearTimeout(timeout);
+		}else if(execAsap){
+			func.apply(obj, args);
+		};
+		timeout = setTimeout(delayed, threshold || 100);
+	};
+};
+window.onresize = debounce(function(){
+    console.log('onresize 多次觸發的解決方法');
+},100,true)
     </script>
 </body>
 </html>
