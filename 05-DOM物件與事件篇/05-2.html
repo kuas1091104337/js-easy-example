@@ -17,12 +17,12 @@
         <a class="Btn" href="javascript:;">馬上看</a>
     </div>
     <script>
-        console.log(document.getElementsByTagName('h1').length);
-        console.log(document.querySelectorAll('#app > a').length);
-        console.log(document.querySelectorAll('#app > a')[1]);
+        // console.log(document.getElementsByTagName('h1').length);
+        // console.log(document.querySelectorAll('#app > a').length);
+        // console.log(document.querySelectorAll('#app > a')[1]);
 
-        console.log(document.getElementsByClassName("Btn")[0]);
-        console.log(document.getElementsByClassName("Btn").length);
+        // console.log(document.getElementsByClassName("Btn")[0]);
+        // console.log(document.getElementsByClassName("Btn").length);
         document.getElementsByClassName('Btn')[1].addEventListener('click', BtnFn);
         function BtnFn(){
             alert('12345')
@@ -31,6 +31,22 @@
         function H1Fn(){
             alert('67890')
         }
+        // console.log(document.getElementsByClassName("Btn"));
+        // document.getElementsByClassName("Btn").forEach(el=>el.style.backgroundColor = 'red');
+        var btn1 = document.getElementsByClassName('Btn'),
+            btn2 = document.querySelectorAll('.Btn');
+        for (i = 0, max = btn1.length; i < max; i++){
+            btn1[i].style.backgroundColor = 'red';
+        }
+        // [].forEach.call(btn1,(el)=>{
+        //   el.style.backgroundColor = 'blue';
+        // });
+        console.log(btn1);
+        console.log(btn2);
+        // btn2.forEach((el, i, arr)=>{
+        //   el.style.backgroundColor = 'red';
+        // });
+        
 
     </script>
 </body>
