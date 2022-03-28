@@ -1,5 +1,39 @@
 window.onload = function(){
+<<<<<<< HEAD
     var timerContent, pageIdx = 1,
+=======
+    // var a1 = document.getElementById("a1");
+    // var a2 = document.getElementById("a2");
+    // var a3 = document.getElementById("a3");
+    // var a4 = document.getElementById("a4");
+    // var a5 = document.getElementById("a5");
+    // var phone = document.getElementById("contentPhone");
+    // var angleleft = document.getElementById("angleleft");
+    // var angleright = document.getElementById("angleright");
+    // var pageIdx = 1;
+    // a1.addEventListener("click", showPhoto);
+    // a2.addEventListener("click", showPhoto);
+    // a3.addEventListener("click", showPhoto);
+    // a4.addEventListener("click", showPhoto);
+    // a5.addEventListener("click", showPhoto);
+    // angleleft.addEventListener("click", angleleftFn)
+    // angleright.addEventListener("click", anglerightFn)
+    // function showPhoto(){
+    //     pageIdx = Number(this.id.substr(1));
+    //     phone.style.backgroundImage = 'url("../images/05/big/' + this.id +'.jpg")';
+    // }
+    // function angleleftFn(){
+    //     pageIdx = pageIdx - 1;
+    //     if(pageIdx < 1) pageIdx = 5;
+    //     phone.style.backgroundImage = 'url("../images/05/big/a' + pageIdx +'.jpg")';
+    // }
+    // function anglerightFn(){
+    //     pageIdx = pageIdx + 1;
+    //     if(pageIdx > 5) pageIdx = 1;
+    //     phone.style.backgroundImage = 'url("../images/05/big/a' + pageIdx +'.jpg")';
+    // }
+    var pageIdx = 1,
+>>>>>>> 0c5cb5d368c2ee8b8d0ebaade6e0defafaf24a75
         pageBtn = document.querySelectorAll('nav > a'),
         pageMax = pageBtn.length;
     pageBtn.forEach((el) => {
@@ -7,6 +41,7 @@ window.onload = function(){
     });
     document.getElementById('angleleft').addEventListener('click',nextPrePage);
     document.getElementById('angleright').addEventListener('click',nextPrePage);
+<<<<<<< HEAD
     function pageBtnReset(){
         document.querySelectorAll('nav > a')[pageIdx-1].classList.remove('active');
     }
@@ -106,4 +141,24 @@ window.onload = function(){
     //     document.getElementById('contentPhone').style.backgroundImage = 'url("../images/05/big/a' + pageIdx +'.jpg")';
     // }
     
+=======
+    function pageChange(){
+        pageIdx = Number(this.id.substr(-1));
+        showPage();
+    }
+    function nextPrePage(){
+        if(this.id == 'angleright') {
+            pageIdx++;
+            if(pageIdx > pageMax) pageIdx = 1
+        } else {
+            pageIdx--;
+            if(pageIdx < 1) pageIdx = pageMax
+        }
+        // console.log(pageMax); console.log(pageIdx);
+        showPage();
+    }
+    function showPage(){
+        document.getElementById('contentPhone').style.backgroundImage = 'url("../images/05/big/a' + pageIdx +'.jpg")';
+    }
+>>>>>>> 0c5cb5d368c2ee8b8d0ebaade6e0defafaf24a75
 }
