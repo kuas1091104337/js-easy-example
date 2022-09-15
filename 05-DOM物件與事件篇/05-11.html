@@ -92,6 +92,10 @@ var debounce = function(func,threshold,execAsap){
 window.onresize = debounce(function(){
     console.log('onresize 多次觸發的解決方法');
 },100,true)
+window.onscroll = debounce(function(){
+    // document.documentElement.scrollTop
+    console.log(document.documentElement.scrollTop);
+},100,true)
     </script>
 </body>
 </html>
