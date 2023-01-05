@@ -4,7 +4,7 @@ window.onload = function(){
         pageMax = pageBtn.length;
     pageBtn.forEach((el) => {
       el.addEventListener('click',pageChange);
-    });
+    }); 
     document.getElementById('angleleft').addEventListener('click',nextPrePage);
     document.getElementById('angleright').addEventListener('click',nextPrePage);
     function pageBtnReset(){
@@ -19,7 +19,7 @@ window.onload = function(){
         pageBtnReset();
         pageIdx = Number(this.id.substr(1));
         showPage();
-    }
+    } 
     function nextPrePage(){
         pageBtnReset();
         this.id == 'angleright' ? pageIdx++ : pageIdx-- ;
